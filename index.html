@@ -1,0 +1,27 @@
+<!--
+ * @Author: kiliaosi
+ * @Date: 2020-07-21 16:40:01
+ * @LastEditors: kiliaosi
+ * @LastEditTime: 2020-07-21 17:17:25
+ * @Description: 
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='container'></div>
+    <script>
+        const es = new EventSource('http://127.0.0.1:8080/se');
+        es.addEventListener('error', (e)=>{
+            console.error(e);
+        })
+        es.addEventListener('customEvent', (e)=>{
+            container.innerHTML = e.data;
+        })
+    </script>
+</body>
+</html>
